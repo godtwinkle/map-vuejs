@@ -24,7 +24,19 @@
 export default {
   methods: {
     locatorButtonPressed() {
-      this.$emit("locatorButtonPressed");
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            console.log(position.coords.latitude);
+            console.log(position.coords.longitude);
+          },
+          (error) => {
+            console.log(error.message);
+          }
+        );
+      } else {
+        console.log("Trình duyệt của bạn không hỗ trợ API này");
+      }
     },
   },
 };
