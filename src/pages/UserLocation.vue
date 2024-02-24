@@ -85,15 +85,15 @@ export default {
             );
           },
           (error) => {
-            this.error =
-              // "Locator is unable to find your address. Please type your address manually.";
-              "Định vị không thể tìm thấy địa chỉ của bạn. Vui lòng nhập địa chỉ";
+            this.error = error.message;
+            // "Locator is unable to find your address. Please type your address manually.";
             this.spinner = false;
             // console.log(error.message);
           }
         );
       } else {
-        this.error = error.message;
+        this.error =
+          "Định vị không thể tìm thấy địa chỉ của bạn. Vui lòng nhập địa chỉ";
         this.spinner = false;
         // console.log("Your browser does not support geolocation API ");
         console.log("Trình duyệt của bạn không hỗ trợ định vị");
